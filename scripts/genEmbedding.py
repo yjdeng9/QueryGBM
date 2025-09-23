@@ -1,5 +1,5 @@
-import os
 
+import sys
 import vertexai
 from vertexai.language_models import TextEmbeddingModel
 from typing import List, Dict, Any, Optional
@@ -33,12 +33,8 @@ def row_to_multimodal_text(row: pd.Series,
     blocks.append("\n## Clinical")
     blocks.append(dict_to_kv_text(cli_dict, "clinical"))
 
-    # 你也可以在这里添加“任务标签/预后标签”等
     return "\n".join([b for b in blocks if b])
 
-
-import argparse
-import sys
 
 def main():
 
